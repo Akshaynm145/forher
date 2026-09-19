@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Maachu ❤️</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   BASIC RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background: #fff6f7;
+    color: #4b3036;
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   PAGE SYSTEM
+========================================================= */
+
+.page {
+    position: fixed;
+    inset: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.03);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* =========================================================
+   BACKGROUNDS
+========================================================= */
+
+#page1 {
+    background:
+        radial-gradient(circle at 20% 20%, #ffe1e7, transparent 30%),
+        radial-gradient(circle at 80% 80%, #ffdce5, transparent 30%),
+        #fff8f9;
+}
+
+#page2 {
+    background:
+        radial-gradient(circle at 10% 80%, #ffe6c9, transparent 30%),
+        radial-gradient(circle at 90% 20%, #ffe0eb, transparent 30%),
+        #fffaf5;
+}
+
+#page3 {
+    background:
+        radial-gradient(circle at 50% 20%, #ffe0e7, transparent 35%),
+        #fff8f5;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.container {
+    width: min(1000px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+
+    text-align: center;
+
+    padding: 35px 25px;
+}
+
+.container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #e9a5b3;
+    border-radius: 20px;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.small-title {
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #b87584;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 8vw, 82px);
+    font-weight: 400;
+    color: #6d3945;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(30px, 5vw, 55px);
+    font-weight: 400;
+    color: #6d3945;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    max-width: 650px;
+    margin: 0 auto 30px;
+
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+button {
+    border: none;
+    cursor: pointer;
+
+    font-family: 'Playfair Display', serif;
+
+    background: #9c5365;
+    color: white;
+
+    padding: 14px 28px;
+
+    border-radius: 40px;
+
+    font-size: 16px;
+
+    box-shadow: 0 10px 25px rgba(120, 50, 70, 0.15);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    background: #813f51;
+
+    box-shadow: 0 15px 30px rgba(120, 50, 70, 0.25);
+}
+
+/* =========================================================
+   STICKERS
+========================================================= */
+
+/*
+EDIT HERE:
+
+Replace these placeholder emoji elements with your own
+PNG stickers if you have them.
+
+Example:
+
+<img src="masha1.png" class="sticker masha">
+
+*/
+
+.sticker {
+    position: absolute;
+    z-index: 2;
+
+    font-size: 70px;
+
+    user-select: none;
+
+    animation: floatSticker 4s ease-in-out infinite;
+}
+
+.sticker-left {
+    left: 5%;
+    bottom: 10%;
+}
+
+.sticker-right {
+    right: 5%;
+    top: 15%;
+
+    animation-delay: 1s;
+}
+
+@keyframes floatSticker {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(3deg);
+    }
+
+}
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.floating-heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    font-size: 20px;
+
+    pointer-events: none;
+
+    animation: heartFloat linear forwards;
+
+    opacity: 0.7;
+
+    z-index: 20;
+}
+
+@keyframes heartFloat {
+
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+/* =========================================================
+   PAGE 1 QUESTIONS
+========================================================= */
+
+.question-box {
+
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    background: rgba(255,255,255,0.75);
+
+    padding: 35px 25px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(100,50,60,0.08);
+
+    backdrop-filter: blur(10px);
+}
+
+.question-number {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #b87584;
+    margin-bottom: 15px;
+}
+
+.question {
+    font-family: 'DM Serif Display', serif;
+
+    font-size: clamp(25px, 4vw, 40px);
+
+    line-height: 1.4;
+
+    color: #633b44;
+
+    min-height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================================
+   MEMORY CARDS
+========================================================= */
+
+.memory-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 25px;
+
+    max-width: 900px;
+
+    margin: 30px auto;
+}
+
+.memory-card {
+
+    background: white;
+
+    padding: 12px 12px 20px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 40px rgba(80,40,50,0.12);
+
+    transform: rotate(-1deg);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.memory-card:nth-child(2) {
+    transform: rotate(2deg);
+}
+
+.memory-card:nth-child(3) {
+    transform: rotate(-2deg);
+}
+
+.memory-card:hover {
+
+    transform:
+        rotate(0deg)
+        translateY(-10px)
+        scale(1.02);
+
+    box-shadow:
+        0 25px 50px rgba(80,40,50,0.18);
+}
+
+.memory-card img {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+
+    margin-bottom: 15px;
+}
+
+.memory-card p {
+
+    font-family: 'Caveat', cursive;
+
+    font-size: 23px;
+
+    color: #71434d;
+}
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote {
+
+    max-width: 700px;
+
+    margin: 35px auto;
+
+    padding: 25px;
+
+    border-top: 1px solid #e5b6bf;
+    border-bottom: 1px solid #e5b6bf;
+}
+
+.quote-text {
+
+    font-family: 'DM Serif Display', serif;
+
+    font-style: italic;
+
+    font-size: clamp(22px, 4vw, 32px);
+
+    line-height: 1.6;
+
+    color: #70434d;
+}
+
+.quote-author {
+
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    color: #a36b77;
+}
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+.letter-wrapper {
+
+    max-width: 780px;
+
+    margin: auto;
+
+    padding: 10px;
+}
+
+.letter {
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.5),
+            rgba(255,255,255,0.5)
+        );
+
+    padding: clamp(30px, 6vw, 70px);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 20px 70px rgba(90,50,50,0.12);
+
+    text-align: left;
+
+    border: 1px solid rgba(170,110,110,0.15);
+}
+
+.letter::before {
+
+    content: "♡";
+
+    position: absolute;
+
+    top: 20px;
+    right: 30px;
+
+    font-size: 30px;
+
+    color: #d8909d;
+}
+
+.letter h3 {
+
+    font-family: 'Caveat', cursive;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    color: #75424e;
+
+    margin-bottom: 25px;
+}
+
+.letter p {
+
+    font-family: 'Caveat', cursive;
+
+    font-size: clamp(21px, 3vw, 27px);
+
+    line-height: 1.7;
+
+    color: #593b40;
+
+    margin-bottom: 20px;
+}
+
+.signature {
+
+    text-align: right;
+
+    font-family: 'Caveat', cursive;
+
+    font-size: 34px;
+
+    color: #75424e;
+
+    margin-top: 30px;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navigation {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.back-button {
+
+    background: transparent;
+
+    color: #9c5365;
+
+    border: 1px solid #c98795;
+}
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope {
+
+    font-size: 70px;
+
+    animation: envelopePulse 2s infinite;
+
+    margin-bottom: 15px;
+}
+
+@keyframes envelopePulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width: 600px) {
+
+    .page {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 25px 10px;
+        max-height: 95vh;
+    }
+
+    .sticker {
+        font-size: 45px;
+    }
+
+    .sticker-left {
+        left: 2%;
+    }
+
+    .sticker-right {
+        right: 2%;
+    }
+
+    .question-box {
+        padding: 25px 15px;
+    }
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PAGE 1
+===================================================== -->
+
+<section class="page active" id="page1">
+
+    <!-- EDIT HERE: Replace emoji with your sticker -->
+
+    <div class="sticker sticker-left">
+        🧸
+    </div>
+
+    <div class="sticker sticker-right">
+        🌸
+    </div>
+
+
+    <div class="container">
+
+        <div class="small-title">
+            For someone who still means a lot to me
+        </div>
+
+        <h1>Do you remember?</h1>
+
+        <p class="subtitle">
+            There are some memories that don't really disappear.
+            They just become quieter with time.
+        </p>
+
+
+        <div class="question-box">
+
+            <div class="question-number" id="questionNumber">
+                QUESTION 01
+            </div>
+
+            <div class="question" id="questionText">
+                Do you remember the little things we used to laugh about?
+            </div>
+
+        </div>
+
+
+        <button onclick="nextQuestion()">
+            I remember...
+        </button>
+
+
+        <div class="navigation">
+
+            <button onclick="goToPage(2)">
+                Continue ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 2
+===================================================== -->
+
+<section class="page" id="page2">
+
+    <div class="sticker sticker-left">
+        🌷
+    </div>
+
+    <div class="sticker sticker-right">
+        🐻
+    </div>
+
+
+    <div class="container">
+
+        <div class="small-title">
+            A few pieces of us
+        </div>
+
+        <h2>Our little universe</h2>
+
+        <p class="subtitle">
+            Maybe these moments were ordinary to the world,
+            but they were never ordinary to me.
+        </p>
+
+
+        <!-- =================================================
+             MEMORY CARDS
+
+             EDIT HERE:
+             Change the image names and captions.
+        ================================================== -->
+
+        <div class="memory-grid">
+
+
+            <div class="memory-card">
+
+                <!-- CHANGE memory1.jpg -->
+
+                <img src="memory1.jpg"
+                     alt="Our memory">
+
+                <p>
+                    That moment I'll probably remember
+                    for much longer than I should.
+                </p>
+
+            </div>
+
+
+            <div class="memory-card">
+
+                <!-- CHANGE memory2.jpg -->
+
+                <img src="memory2.jpg"
+                     alt="Our memory">
+
+                <p>
+                    Somewhere between ordinary days,
+                    we created something extraordinary.
+                </p>
+
+            </div>
+
+
+            <div class="memory-card">
+
+                <!-- CHANGE memory3.jpg -->
+
+                <img src="memory3.jpg"
+                     alt="Our memory">
+
+                <p>
+                    Some memories don't need a reason
+                    to make us smile.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             QUOTE
+
+             You can replace this with another quote.
+        ================================================== -->
+
+        <div class="quote">
+
+            <div class="quote-text">
+
+                “Whatever our souls are made of,
+                his and mine are the same.”
+
+            </div>
+
+            <div class="quote-author">
+                — Emily Brontë, Wuthering Heights
+            </div>
+
+        </div>
+
+
+        <div class="quote">
+
+            <div class="quote-text">
+
+                “We loved with a love that was more than love.”
+
+            </div>
+
+            <div class="quote-author">
+                — Edgar Allan Poe
+            </div>
+
+        </div>
+
+
+        <div class="navigation">
+
+            <button class="back-button"
+                    onclick="goToPage(1)">
+                ← Back
+            </button>
+
+            <button onclick="goToPage(3)">
+                One last thing 💌
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 3
+===================================================== -->
+
+<section class="page" id="page3">
+
+    <div class="sticker sticker-left">
+        🌹
+    </div>
+
+    <div class="sticker sticker-right">
+        💗
+    </div>
+
+
+    <div class="container">
+
+        <div class="envelope">
+            💌
+        </div>
+
+        <div class="small-title">
+            Something I wanted to say
+        </div>
+
+        <h2>For Masha</h2>
+
+
+        <div class="letter-wrapper">
+
+            <div class="letter">
+
+                <!-- =================================================
+                     EDIT YOUR LETTER HERE
+                ================================================== -->
+
+                <h3>My Maachu,</h3>
+
+
+                <p>
+                    I don't know if a website can say the things
+                    that I couldn't say properly when I had the chance,
+                    but I wanted to try. im sorry i really wish 
+                    i could leave but i cant i wish it was too easy
+                    to say goodbye and never talk to you again
+                    that day i really just tried to hold your hands
+                    i was missing you the whole day so i was just trying
+                    your hands it was not my intention to hurt you physically
+                    so sorry that happened from my side.
+                </p>
+
+
+                <p>
+                    I'm sorry for the things I did wrong,
+                    for the moments when I didn't understand you,
+                    and for the times when my actions hurt you.
+                </p>
+
+
+                <p>
+                    I don't want this letter to erase the past.
+                    I just want you to know that the memories we made
+                    were real to me, and that you mattered to me
+                    more than I sometimes knew how to express.
+                </p>
+
+
+                <p>
+                    I still remember the small things.
+                    The conversations.
+                    our first kiss, our first hug that something i will never forget
+                    The moments that probably looked ordinary
+                    to everyone else but meant something to me.           
+                    moments that felt so real from your side
+                    best moments of my life no doubt, my eyes
+                    was full of love, still it is. i love you maachu
+                    i really wish you were with me
+                    there is this feeling i dont get from anyone else but you
+                    you are that special to me
+
+                </p>
+
+
+                <p>
+                    I'm not asking you to forget anything.
+                    I'm not asking you to make a decision right now.
+                    I simply wanted to say what was sitting
+                    inside my heart. i just want to let you know that
+                    i will always love you no matter what cuz ik i love 
+                    you and its almost like a spell i cant undo
+                </p>
+
+
+                <p>
+                    Whatever happens from here,
+                    I will always be grateful that our paths crossed.
+                </p>
+
+
+                <div class="signature">
+
+                    — Yours,  
+                    Appu ❤️
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="navigation">
+
+            <button class="back-button"
+                    onclick="goToPage(2)">
+                ← Back
+            </button>
+
+            <button onclick="finalMessage()">
+                Open one last message ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<!--
+EDIT HERE:
+
+Put your MP3 files in the "music" folder.
+
+Example:
+
+music/page1.mp3
+music/page2.mp3
+music/page3.mp3
+
+-->
+
+<audio id="music1"
+       src="page1.mp3"
+       loop>
+</audio>
+
+<audio id="music2"
+       src="page2.mp3"
+       loop>
+</audio>
+
+<audio id="music3"
+       src="page3.mp3"
+       loop>
+</audio>
+
+
+<script>
+
+/* =========================================================
+   QUESTIONS
+
+   EDIT THESE QUESTIONS
+========================================================= */
+
+const questions = [
+
+    "Do you remember how you slept on my lap on our way back to delhi?",
+
+    "Do you remember our late night conversations?",
+
+    "Do you remember the moments when we spent on the train that felt forever?",
+
+    "Do you remember our hand held eachother accidentally which made us close?",
+
+    "If you could relive one moment with me, which one would you choose?",
+
+    "Do you ever find yourself remembering us when something reminds you of me?",
+
+    "Do you remember how something so ordinary slowly became something so important?"
+
+];
+
+
+let questionIndex = 0;
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion() {
+
+    questionIndex++;
+
+    if (questionIndex >= questions.length) {
+
+        questionIndex = 0;
+
+    }
+
+    document.getElementById("questionText").style.opacity = "0";
+
+
+    setTimeout(() => {
+
+        document.getElementById("questionText").innerText =
+            questions[questionIndex];
+
+        document.getElementById("questionNumber").innerText =
+            "QUESTION " +
+            String(questionIndex + 1).padStart(2, "0");
+
+        document.getElementById("questionText").style.opacity = "1";
+
+    }, 250);
+
+}
+
+
+/* =========================================================
+   MUSIC CONTROL
+========================================================= */
+
+let musicStarted = false;
+
+
+function startMusic() {
+
+    if (!musicStarted) {
+
+        musicStarted = true;
+
+        playMusic(1);
+
+    }
+
+}
+
+
+function stopAllMusic() {
+
+    const tracks = [
+
+        document.getElementById("music1"),
+        document.getElementById("music2"),
+        document.getElementById("music3")
+
+    ];
+
+
+    tracks.forEach(track => {
+
+        track.pause();
+
+        track.currentTime = 0;
+
+    });
+
+}
+
+
+function playMusic(pageNumber) {
+
+    stopAllMusic();
+
+
+    let selectedTrack;
+
+
+    if (pageNumber === 1) {
+
+        selectedTrack = document.getElementById("music1");
+
+    }
+
+    if (pageNumber === 2) {
+
+        selectedTrack = document.getElementById("music2");
+
+    }
+
+    if (pageNumber === 3) {
+
+        selectedTrack = document.getElementById("music3");
+
+    }
+
+
+    if (selectedTrack) {
+
+        selectedTrack.volume = 0.65;
+
+        selectedTrack.play().catch(() => {
+
+            /*
+            Browser may block autoplay.
+            Music will work after user interaction.
+            */
+
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function goToPage(pageNumber) {
+
+    document.querySelectorAll(".page").forEach(page => {
+
+        page.classList.remove("active");
+
+    });
+
+
+    const selectedPage =
+        document.getElementById("page" + pageNumber);
+
+
+    selectedPage.classList.add("active");
+
+
+    startMusic();
+
+    playMusic(pageNumber);
+
+
+    createHearts();
+
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+function createHearts() {
+
+    for (let i = 0; i < 8; i++) {
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "floating-heart";
+
+        heart.innerHTML =
+            Math.random() > 0.5
+            ? "♡"
+            : "♥";
+
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+
+        heart.style.animationDuration =
+            (5 + Math.random() * 5) + "s";
+
+
+        heart.style.fontSize =
+            (14 + Math.random() * 18) + "px";
+
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 10000);
+
+    }
+
+}
+
+
+/* =========================================================
+   FINAL MESSAGE
+========================================================= */
+
+function finalMessage() {
+
+    createHearts();
+
+    setTimeout(() => {
+
+        alert(
+            "Thank you for reading this. ❤️\n\n" +
+            "Whatever you choose, I hope you know " +
+            "that what we shared meant something to me."
+        );
+
+    }, 500);
+
+}
+
+
+/* =========================================================
+   INITIAL HEARTS
+========================================================= */
+
+setInterval(() => {
+
+    if (document.querySelector(".page.active")) {
+
+        if (Math.random() > 0.65) {
+
+            createHearts();
+
+        }
+
+    }
+
+}, 4000);
+
+</script>
+
+</body>
+</html>
